@@ -1,5 +1,5 @@
 const PredictRepository = require('./predict.repository');
-const crypto = require('crypto');
+const uuid = require('uuid');
 const tf = require('@tensorflow/tfjs-node');
 
 class PredictService {
@@ -23,7 +23,7 @@ class PredictService {
     }
 
     generateId() {
-        return crypto.randomUUID();
+        return uuid.v4();
     }
 
     async savePrediction(predictionData) {
