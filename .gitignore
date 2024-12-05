@@ -3,4 +3,3 @@ serviceKeyStorage.json
 .env
 node_modules
 model/
-package-lock.json
