@@ -21,7 +21,7 @@ class PredictController {
                 data: predictionData,
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: 'fail',
                 message: 'Terjadi kesalahan dalam melakukan prediksi',
             });
@@ -36,7 +36,7 @@ class PredictController {
                 data: predictions,
             });
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 status: 'fail',
                 message: 'Terjadi kesalahan dalam mengambil data prediksi',
             });
