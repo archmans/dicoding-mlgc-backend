@@ -1,4 +1,5 @@
 serviceKey.json
+serviceKeyStorage.json
 .env
 node_modules
 model/

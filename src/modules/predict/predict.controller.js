@@ -1,5 +1,5 @@
 const PredictService = require('./predict.service');
-const model = require('../../config/model');
+const Model = require('../../config/model');
 
 let modelInstance;
 
@@ -12,7 +12,7 @@ class PredictController {
                     message: 'Payload content length greater than maximum allowed: 1000000',
                 });
             }
-            await model.loadModel();
+            modelInstance = await Model.loadModel();
             const predictionData = await PredictService.predict(req.file.buffer, modelInstance);
             await PredictService.savePrediction(predictionData);
             res.status(201).json({

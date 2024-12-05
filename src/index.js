@@ -5,7 +5,7 @@ const cors = require('cors');
 const PredictController = require('./modules/predict/predict.controller');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const upload = new multer({
     storage: multer.memoryStorage(),

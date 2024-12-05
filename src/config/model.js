@@ -1,13 +1,20 @@
 const tf = require('@tensorflow/tfjs-node');
-const path = require('path');
-const pathToModel = `file://${path.resolve(__dirname, '../../model/model.json')}`;
-// TODO: Nanti ganti ke path model yang sudah diupload ke cloud storage
+const Bucket = require('./storage');
 
-class LoadModel {
+class Model {
     async loadModel() {
-        const model = await tf.loadGraphModel(pathToModel);
-        return model;
+        try {
+            const url = await Bucket.generatedUrl();
+            console.log('Loading model from URL:', url);
+            const model = await tf.loadGraphModel(url);
+            console.log('Model loaded successfully');
+            console.log(model);
+            return model;
+        } catch (error) {
+            console.error('Error loading model:', error);
+            throw error;
+        }
     }
 }
 
-module.exports = new LoadModel();
+module.exports = new Model();
