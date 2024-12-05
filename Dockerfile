@@ -1,14 +1,14 @@
-FROM node:20-alpine
+FROM node:18
 
-WORKDIR /app
+WORKDIR /src/app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
 RUN npm install
 
-COPY . .
-
 ENV HOST 0.0.0.0
+
+COPY . .
 
 EXPOSE 8080
 
